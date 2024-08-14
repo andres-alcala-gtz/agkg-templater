@@ -35,7 +35,7 @@ def search_data_frame(path: pathlib.Path, part_style: dict[str, str]) -> pandas.
     dictionary = {part_style["section"]: "", part_style["title"]: "", part_style["subtitle"]: "", part_style["label"]: "", part_style["text"]: ""}
     data_frame = pandas.DataFrame(columns=list(dictionary.keys()))
 
-    dictionary.update({part_style["section"]: "Plan Appraisal - Cover", part_style["label"]: "AID:", part_style["text"]: re.search(r"\d+", path.name).group()})
+    dictionary.update({part_style["section"]: "Plan Appraisal - Cover", part_style["label"]: "AID:", part_style["text"]: re.search("[\d]+", path.name).group()})
     _push(data_frame, dictionary)
 
     document = docx.Document(str(path))
@@ -58,7 +58,7 @@ def search_data(data_frame: pandas.DataFrame, part_style: dict[str, str]) -> dic
         if subtitle: filtered = filtered[filtered[part_style["subtitle"]] == subtitle]
         if label: filtered = filtered[filtered[part_style["label"]] == label]
         if text: filtered = filtered[filtered[part_style["text"]] == text]
-        try: return filtered[part_style["subtitle"] if personnel else part_style["text"]].values[index]
+        try: return filtered[part_style["subtitle" if personnel else "text"]].values[index]
         except: return "-"
 
     data = {}
