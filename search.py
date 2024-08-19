@@ -29,14 +29,17 @@ def search_part_style(path: pathlib.Path) -> dict[str, str]:
 
 def search_data_frame(path: pathlib.Path, part_style: dict[str, str]) -> pandas.DataFrame:
 
-    def _push(data_frame: pandas.DataFrame, dictionary: dict[str, str]) -> None:
-        data_frame.loc[len(data_frame)] = list(dictionary.values())
+    def _push(data_frame: pandas.DataFrame, dictionary: dict[str, str], mode: str) -> None:
+        if mode == "a":
+            data_frame.loc[len(data_frame)] = list(dictionary.values())
+        if mode == "w":
+            data_frame.loc[len(data_frame) - 1, part_style["text"]] += f'\n{dictionary[part_style["text"]]}'
 
     dictionary = {part_style["section"]: "", part_style["title"]: "", part_style["subtitle"]: "", part_style["label"]: "", part_style["text"]: ""}
     data_frame = pandas.DataFrame(columns=list(dictionary.keys()))
 
     dictionary.update({part_style["section"]: "Plan Appraisal - Cover", part_style["label"]: "AID:", part_style["text"]: re.search("[\d]+", path.name).group()})
-    _push(data_frame, dictionary)
+    _push(data_frame, dictionary, "a")
 
     document = docx.Document(str(path))
     for paragraph in document.paragraphs:
@@ -44,7 +47,8 @@ def search_data_frame(path: pathlib.Path, part_style: dict[str, str]) -> pandas.
             if paragraph.style.name in dictionary:
                 dictionary.update({paragraph.style.name: paragraph.text})
             if paragraph.style.name == part_style["text"]:
-                _push(data_frame, dictionary)
+                mode = "a" if list(data_frame.loc[len(data_frame) - 1])[:-1] != list(dictionary.values())[:-1] else "w"
+                _push(data_frame, dictionary, mode)
 
     return data_frame
 
