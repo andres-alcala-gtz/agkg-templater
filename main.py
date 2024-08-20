@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     data = search.search(directory_src)
 
-    identifier = data["«APPRAISAL_IDENTIFIER»"]
+    identifier = data["«identifier»"]
 
     directory_tpl = pathlib.Path(f"_Templates")
     directory_dst = pathlib.Path(f"Benchmark - {identifier}")

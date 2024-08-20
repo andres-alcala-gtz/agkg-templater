@@ -67,47 +67,47 @@ def search_data(data_frame: pandas.DataFrame, part_style: dict[str, str]) -> dic
 
     data = {}
 
-    data["«APPRAISAL_IDENTIFIER»"] = _loc(section="Plan Appraisal - Cover", label="AID:")
-    data["«APPRAISAL_TARGET»"] = _loc(section="Plan Appraisal - Cover", label="Target:")
+    data["«identifier»"] = _loc(section="Plan Appraisal - Cover", label="AID:")
+    data["«target»"] = _loc(section="Plan Appraisal - Cover", label="Target:")
 
-    data["«APPRAISAL_TIMEZONE»"] = _loc(section="Plan Appraisal – Sample Scope: Appraisal Setup", label="Time Zone")
-    data["«APPRAISAL_PARTNER»"] = _loc(section="Plan Appraisal – Sample Scope: Appraisal Setup", label="Partner")
-    data["«APPRAISAL_OBJECTIVES»"] = _loc(section="Plan Appraisal – Sample Scope: Appraisal Setup", label="Business and Appraisal Objectives")
-    data["«APPRAISAL_VIRTUAL»"] = _loc(section="Plan Appraisal – Sample Scope: Appraisal Setup", label="Use of a virtual collection technique for appraisal")
+    data["«timezone»"] = _loc(section="Plan Appraisal – Sample Scope: Appraisal Setup", label="Time Zone")
+    data["«partner»"] = _loc(section="Plan Appraisal – Sample Scope: Appraisal Setup", label="Partner")
+    data["«objectives»"] = _loc(section="Plan Appraisal – Sample Scope: Appraisal Setup", label="Business and Appraisal Objectives")
+    data["«virtual»"] = _loc(section="Plan Appraisal – Sample Scope: Appraisal Setup", label="Use of a virtual collection technique for appraisal")
 
-    data["«ORGANIZATION_NAME»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organization", label="Name")
-    data["«ORGANIZATION_NATIVE_NAME»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organization", label="Native Language Name")
-    data["«ORGANIZATION_CITY»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organization", label="City")
-    data["«ORGANIZATION_REGION»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organization", label="State/Province/Region")
+    data["«organization_name»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organization", label="Name")
+    data["«organization_name_native»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organization", label="Native Language Name")
+    data["«organization_city»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organization", label="City")
+    data["«organization_region»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organization", label="State/Province/Region")
 
-    data["«ORGANIZATIONAL_UNIT_NAME»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organizational Unit (OU)", label="Name")
-    data["«ORGANIZATIONAL_UNIT_NATIVE_NAME»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organizational Unit (OU)", label="Native Language Name")
+    data["«ou_name»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organizational Unit (OU)", label="Name")
+    data["«ou_name_native»"] = _loc(section="Plan Appraisal – Sample Scope: Organization", title="Organizational Unit (OU)", label="Native Language Name")
 
-    data["«SPONSOR_NAME»"] = _loc(personnel=True, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Appraisal Sponsor")
-    data["«SPONSOR_ORGANIZATION»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«SPONSOR_NAME»"], label="Organization")
+    data["«sponsor_name»"] = _loc(personnel=True, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Appraisal Sponsor")
+    data["«sponsor_organization»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«sponsor_name»"], label="Organization")
 
-    data["«INTERPRETER_NAME»"] = _loc(personnel=True, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Registered Interpreter")
-    data["«INTERPRETER_ORGANIZATION»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«INTERPRETER_NAME»"], label="Organization")
+    data["«ri_name»"] = _loc(personnel=True, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Registered Interpreter")
+    data["«ri_organization»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«ri_name»"], label="Organization")
 
-    data["«COORDINATOR_NAME»"] = _loc(personnel=True, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="OU Coordinator")
-    data["«COORDINATOR_ORGANIZATION»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«COORDINATOR_NAME»"], label="Organization")
+    data["«ouc_name»"] = _loc(personnel=True, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="OU Coordinator")
+    data["«ouc_organization»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«ouc_name»"], label="Organization")
 
-    data["«MEMBER0_NAME»"] = _loc(personnel=True, index=0, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Appraisal Team Member")
-    data["«MEMBER0_ORGANIZATION»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«MEMBER0_NAME»"], label="Organization")
+    data["«atm0_name»"] = _loc(personnel=True, index=0, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Appraisal Team Member")
+    data["«atm0_organization»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«atm0_name»"], label="Organization")
 
-    data["«MEMBER1_NAME»"] = _loc(personnel=True, index=1, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Appraisal Team Member")
-    data["«MEMBER1_ORGANIZATION»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«MEMBER1_NAME»"], label="Organization")
+    data["«atm1_name»"] = _loc(personnel=True, index=1, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Appraisal Team Member")
+    data["«atm1_organization»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«atm1_name»"], label="Organization")
 
-    data["«MEMBER2_NAME»"] = _loc(personnel=True, index=2, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Appraisal Team Member")
-    data["«MEMBER2_ORGANIZATION»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«MEMBER2_NAME»"], label="Organization")
+    data["«atm2_name»"] = _loc(personnel=True, index=2, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Appraisal Team Member")
+    data["«atm2_organization»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«atm2_name»"], label="Organization")
 
-    data["«MEMBER3_NAME»"] = _loc(personnel=True, index=3, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Appraisal Team Member")
-    data["«MEMBER3_ORGANIZATION»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«MEMBER3_NAME»"], label="Organization")
+    data["«atm3_name»"] = _loc(personnel=True, index=3, section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", text="Appraisal Team Member")
+    data["«atm3_organization»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«atm3_name»"], label="Organization")
 
-    data["«PLAN_START»"] = datetime.datetime.strptime(_loc(section="Plan Appraisal - Sample Scope: Timeline and Scheduling", label="Plan Appraisal Start Date"), "%Y/%m/%d").strftime("%d-%b-%Y")
-    data["«PLAN_END»"] = datetime.datetime.strptime(_loc(section="Plan Appraisal - Sample Scope: Timeline and Scheduling", label="Plan Appraisal End Date"), "%Y/%m/%d").strftime("%d-%b-%Y")
-    data["«CONDUCT_START»"] = datetime.datetime.strptime(_loc(section="Plan Appraisal - Sample Scope: Timeline and Scheduling", label="Conduct Appraisal Start Date"), "%Y/%m/%d").strftime("%d-%b-%Y")
-    data["«CONDUCT_END»"] = datetime.datetime.strptime(_loc(section="Plan Appraisal - Sample Scope: Timeline and Scheduling", label="Conduct Appraisal End Date"), "%Y/%m/%d").strftime("%d-%b-%Y")
+    data["«plan_start_date»"] = datetime.datetime.strptime(_loc(section="Plan Appraisal - Sample Scope: Timeline and Scheduling", label="Plan Appraisal Start Date"), "%Y/%m/%d").strftime("%d-%b-%Y")
+    data["«plan_end_date»"] = datetime.datetime.strptime(_loc(section="Plan Appraisal - Sample Scope: Timeline and Scheduling", label="Plan Appraisal End Date"), "%Y/%m/%d").strftime("%d-%b-%Y")
+    data["«conduct_start_date»"] = datetime.datetime.strptime(_loc(section="Plan Appraisal - Sample Scope: Timeline and Scheduling", label="Conduct Appraisal Start Date"), "%Y/%m/%d").strftime("%d-%b-%Y")
+    data["«conduct_end_date»"] = datetime.datetime.strptime(_loc(section="Plan Appraisal - Sample Scope: Timeline and Scheduling", label="Conduct Appraisal End Date"), "%Y/%m/%d").strftime("%d-%b-%Y")
 
     return data
 
