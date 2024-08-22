@@ -12,7 +12,10 @@ def update_xls(path: pathlib.Path, data: dict[str, str]) -> None:
 
     def _update(container) -> None:
         if isinstance(container.value, str) and re.search("«[\w]+»", container.value) and container.data_type != "f":
-            container.value = data[container.value]
+            text = container.value
+            for key, value in data.items():
+                text = text.replace(key, value)
+            container.value = text
 
     workbook = openpyxl.load_workbook(str(path))
     for sheetname, (rows, cols) in utilities.worksheets_dimensions(str(path)).items():
@@ -90,14 +93,13 @@ def update_ppt(path: pathlib.Path, data: dict[str, str]) -> None:
 
 def update(directory_tpl: pathlib.Path, directory_dst: pathlib.Path, data: dict[str, str]) -> None:
 
-    file_copy = {"AppraisalCertificate.pptx": True, "InterpreterAgreement.docx": True, "Invoice.xlsx": True}
+    names = [path.name for path in directory_tpl.glob("*") if path.suffix in (".xlsx", ".docx", ".pptx")]
 
     directory_dst.mkdir()
-    for file, copy in file_copy.items():
-        if copy:
-            path_src = directory_tpl / file
-            path_dst = directory_dst / file
-            shutil.copyfile(str(path_src), str(path_dst))
+    for name in names:
+        path_src = directory_tpl / name
+        path_dst = directory_dst / name
+        shutil.copyfile(str(path_src), str(path_dst))
 
     suffix_to_function = {".xlsx": update_xls, ".docx": update_doc, ".pptx": update_ppt}
 
