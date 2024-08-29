@@ -142,6 +142,12 @@ def search_data(data_frame: pandas.DataFrame, part_style: dict[str, str]) -> dic
     data["«conduct_end_month»"] = conduct_end.strftime("%m")
     data["«conduct_end_day»"] = conduct_end.strftime("%d")
 
+    domains = {"Development": "DEV", "Services": "SVC", "Suppliers": "SPM", "Virtual": "VRT", "Security": "SEC"}
+    parts = data["«target»"].split()
+
+    data["«target_short»"] = f"{parts[0]}-{domains[parts[1]]} {parts[2][0]}{parts[3][0]}{parts[4]}"
+    data["«TARGET_SHORT»"] = data["«target_short»"].upper()
+
     return data
 
 
