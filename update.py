@@ -93,7 +93,7 @@ def update_ppt(path: pathlib.Path, data: dict[str, str]) -> None:
 
 def update(directory_tpl: pathlib.Path, directory_dst: pathlib.Path, data: dict[str, str]) -> None:
 
-    names = [path.name for path in directory_tpl.glob("*") if path.suffix in (".xlsx", ".docx", ".pptx")]
+    names = [path.name for path in directory_tpl.glob("*") if path.suffix in (".xlsx", ".docx", ".pptx") and not path.name.startswith(".")]
 
     directory_dst.mkdir()
     for name in names:
@@ -103,7 +103,7 @@ def update(directory_tpl: pathlib.Path, directory_dst: pathlib.Path, data: dict[
 
     suffix_to_function = {".xlsx": update_xls, ".docx": update_doc, ".pptx": update_ppt}
 
-    paths = [path for path in directory_dst.glob("*") if path.suffix in (".xlsx", ".docx", ".pptx")]
+    paths = [path for path in directory_dst.glob("*") if path.suffix in (".xlsx", ".docx", ".pptx") and not path.name.startswith(".")]
 
     for path in paths:
         function = suffix_to_function[path.suffix]
