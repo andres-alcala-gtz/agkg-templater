@@ -118,6 +118,9 @@ def search_data(data_frame: pandas.DataFrame, part_style: dict[str, str]) -> dic
     data["«ATM3_Name»"] = data["«atm3_name»"].title()
     data["«atm3_organization»"] = _loc(section="Plan Appraisal - Sample Scope: Appraisal Personnel", title="Create Appraisal Team", subtitle=data["«atm3_name»"], label="Organization")
 
+    data["«name»"] = _loc(personnel=True, section="Plan Appraisal – Sample Scope: Appraisal Setup", label="Appraisal Type")
+    data["«NAME»"] = data["«name»"].upper()
+
     data["«pinyin»"] = "(pinyin)" if data["«organization_country»"] == "China" else ""
     data["«Pinyin»"] = data["«pinyin»"].title()
     data["«PINYIN»"] = data["«pinyin»"].upper()
